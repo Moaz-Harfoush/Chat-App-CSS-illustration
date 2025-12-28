@@ -1,0 +1,86 @@
+/* tailwindcss */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.app-container {
+    @apply  min-h-screen flex items-center justify-center relative
+
+            before:content-[''] before:w-full before:max-w-[33.75rem] before:h-[90%] before:absolute
+            before:rounded-bl-[25rem] before:rounded-br-[25rem] before:left-[-5rem] before:top-0 before:bg-gradient-primary
+
+            after:content-[''] after:w-full after:max-w-[33.75rem] after:h-[90%] after:absolute 
+            after:bg-bg-main-light after:rounded-tl-[25rem] after:rounded-tr-[25rem]
+            after:right-[-10rem] after:bottom-0
+
+            max-lg:before:w-[60%] max-lg:after:w-[60%]
+            max-md:before:w-[75%] max-md:before:h-[55%]
+            max-md:after:w-[95%] max-md:after:h-[40%]
+}
+
+.layout-wrapper {
+    @apply  w-[53rem] relative z-[2] flex items-center justify-around gap-[5rem]
+            max-md:flex-col max-md:mt-[7rem] max-md:mb-[8rem]
+}
+
+.chat-phone {
+    @apply  bg-text-on-dark w-[17rem] h-[34rem] rounded-[2rem]
+            p-[10px] shadow-[15px_30px_60px_-25px_hsl(271,36%,24%)] relative
+
+            before:bg-text-on-dark before:content-[''] before:absolute before:h-[2rem]
+            before:w-[60%] before:top-0 before:left-[20%] before:rounded-[2rem]
+}
+
+.chat-header-user {
+    @apply  relative flex gap-[10px] items-center mt-[10px]
+
+            before:content-[''] before:absolute before:left-[-8%] before:top-[40%] before:w-[8px] before:h-[8px]
+            before:border-l-2 before:border-t-2 before:border-text-on-dark before:rotate-[320deg]
+
+            after:text-text-on-dark after:content-['⋮'] after:absolute after:top-[20%] after:right-[-5%]
+} 
+
+
+.chat-message-group-left-1, .chat-message-group-right-1 , .chat-message-group-left-2 {
+    @apply flex flex-col gap-[10px] px-[10px]
+}
+
+.chat-message-group-left-1 p,  
+.chat-message-group-left-2 p {
+    @apply w-[65%] bg-bg-message-receiver text-text-message-sender p-[5px] rounded-[10px] text-[10px]
+}
+
+.chat-message-group-left-2 .chat-option-left-1, 
+.chat-message-group-left-2 .chat-option-left-2 {
+    @apply text-text-on-dark px-[30px] py-[10px] relative bg-gradient-button
+
+    before:content-[''] before:w-4 before:h-4 before:absolute before:left-[5%]
+    before:rounded-full before:bg-transparent before:border-2 before:border-bg-message-receiver
+    
+    after:content-[''] after:absolute after:right-[5%] after:top-[20%] after:bg-transparent after:font-bold after:text-[15px]
+}
+.chat-message-group-left-2 .chat-option-left-1 {
+    @apply after:content-['$29']
+}
+.chat-message-group-left-2 .chat-option-left-2 {
+    @apply after:content-['$49']
+}
+
+.chat-input-placeholder {
+    @apply bg-text-on-dark text-text-muted w-[95%] px-[20px] py-[12px]
+        rounded-[2rem] mt-[13px] ml-[7px] text-[10px] relative cursor-pointer
+
+        before:content-['>'] before:absolute before:right-[3%] before:top-[10%] before:w-[2rem] before:h-[2rem]
+        before:rounded-full before:bg-bg-phone-shadow before:text-text-on-dark
+        before:grid before:place-items-center before:text-[1rem]
+}
+
+@layer utilities {
+    .bg-gradient-primary {
+        background: linear-gradient(to bottom left, theme('colors.gradient-start-primary'), theme('colors.gradient-end'));
+    }
+
+    .bg-gradient-button {
+        background: linear-gradient(to bottom left, theme('colors.gradient-start-button'), theme('colors.gradient-end'));
+    }
+}
